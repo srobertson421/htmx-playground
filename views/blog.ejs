@@ -1,0 +1,15 @@
+<% if(useLayout) { %>
+  <%- include('partials/pageTop') %>
+<% } %>
+
+<h1>Blog</h1>
+
+<ul hx-boost="true" hx-target="#page-container">
+<% for(let i = 0; i < posts.length; i++) { %>
+  <li><a href="/blog/<%= posts[i].split('.')[0] %>"><%= posts[i].split('.')[0] %></a></li>
+<% } %>
+</ul>
+
+<% if(useLayout) { %>
+  <%- include('partials/pageBottom') %>
+<% } %>
