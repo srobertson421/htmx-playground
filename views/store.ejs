@@ -1,0 +1,26 @@
+<% if(useLayout) { %>
+  <%- include('partials/pageTop') %>
+<% } %>
+
+<main id="page-container" class="fade-in">
+  <h1>Store</h1>
+
+  <% for(let i = 0; i < products.length; i++) { %>
+    <div
+      style="cursor: pointer;"
+      hx-get="/store/<%= i %>"
+      hx-swap="outerHTML"
+      hx-target="#page-container"
+      hx-push-url="true"
+    >
+      <img src="<%= products[i].image %>" alt="<%= products[i].name %>" />
+      <h4><%= products[i].name %></h4>
+      <p>$<%= products[i].price %></p>
+      <p><%= products[i].description %></p>
+    </div>
+  <% } %>
+</main>
+
+<% if(useLayout) { %>
+  <%- include('partials/pageBottom') %>
+<% } %>

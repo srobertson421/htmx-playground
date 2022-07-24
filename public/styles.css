@@ -22,6 +22,10 @@ body {
   animation-fill-mode: both;
 }
 
+img {
+  width: 100%;
+}
+
 main#page-container {
   width: 80%;
   max-width: 1280px;

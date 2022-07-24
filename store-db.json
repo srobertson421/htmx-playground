@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Item 1",
+    "description": "This is the first item.",
+    "price": 34.99,
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Item 2",
+    "description": "This is the second item.",
+    "price": 19.99,
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Item 3",
+    "description": "This is the third item.",
+    "price": 55.99,
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Item 4",
+    "description": "This is the fourth item.",
+    "price": 99.99,
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Item 5",
+    "description": "This is the fifth item.",
+    "price": 8.99,
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Item 6",
+    "description": "This is the sixth item.",
+    "price": 27.99,
+    "image": "https://via.placeholder.com/150"
+  }
+]

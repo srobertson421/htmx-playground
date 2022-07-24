@@ -5,7 +5,7 @@
 <main id="page-container" class="fade-in">
   <h1>Blog</h1>
 
-  <ul hx-boost="true" hx-target="#page-container">
+  <ul hx-boost="true" hx-target="#page-container" hx-swap="outerHTML">
     <% for(let i = 0; i < posts.length; i++) { %>
       <li><a href="/blog/<%= posts[i].split('.')[0] %>"><%= posts[i].split('.')[0] %></a></li>
     <% } %>

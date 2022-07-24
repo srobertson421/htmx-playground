@@ -8,6 +8,8 @@ const markdownConverter = new showdown.Converter();
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+const storeDB = require('./store-db.json');
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
@@ -26,11 +28,6 @@ app.get('/contact', (req, res) => {
   res.render('contact', { useLayout: !req.headers['hx-request'] });
 });
 
-app.get('/blog', (req, res) => {
-  const postsList = fs.readdirSync(path.join(__dirname, 'posts'));
-  res.render('blog', { useLayout: !req.headers['hx-request'], posts: postsList });
-});
-
 app.get('/blog/:slug', (req, res) => {
   const postContent = fs.readFileSync(path.join(__dirname, `posts/${req.params.slug}.md`), 'utf8');
 
@@ -38,6 +35,21 @@ app.get('/blog/:slug', (req, res) => {
     useLayout: !req.headers['hx-request'],
     post: markdownConverter.makeHtml(postContent)
   });
+});
+
+app.get('/blog', (req, res) => {
+  const postsList = fs.readdirSync(path.join(__dirname, 'posts'));
+  res.render('blog', { useLayout: !req.headers['hx-request'], posts: postsList });
+});
+
+app.get('/store', (req, res) => {
+  res.render('store', { useLayout: !req.headers['hx-request'], products: storeDB });
+});
+
+app.get('/store/:id', (req, res) => {
+  const productId = req.params.id;
+  const product = storeDB[productId];
+  res.render('product', { useLayout: !req.headers['hx-request'], product });
 });
 
 app.get('/*', (req, res) => {
